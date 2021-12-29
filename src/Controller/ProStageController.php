@@ -17,10 +17,10 @@ class ProStageController extends AbstractController
     }
 
     /**
-     * @Route("/ressources/345", name="prostage_ressource345")
+     * @Route("/ressources/{id}", name="prostage_ressource")
      */
-    public function afficherRessourcePeda(): Response
+    public function afficherRessourcePeda($id): Response
     {
-        return $this->render('pro_stage/affichageRessource.html.twig', ['idRessource' => 345]);
+        return $this->render('pro_stage/affichageRessource.html.twig', ['idRessource' => $id]);
     }
 }
