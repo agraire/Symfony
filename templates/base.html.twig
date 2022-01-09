@@ -19,7 +19,7 @@
         {% block slider %}
         <div class="row">
             <div class="col-4 offset-4 mt-4">
-                <img src="ProStage.png" class="shadow-lg p-3 mb-5 bg-body rounded img-fluid" alt="...">
+                <img src="{{asset('img/ProStage.png')}}" class="shadow-lg p-3 mb-5 bg-body rounded img-fluid" alt="..." />
             </div>
         </div>
         {% endblock %}
@@ -37,14 +37,22 @@
                       <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                           <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Pas de filtre</a>
+                            <a class="nav-link active" aria-current="page" href="{{path('prostage_accueil')}}">Pas de filtre</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="#">Filtrer par entreprise</a>
+                            <a class="nav-link" href="{{path('prostage_FiltreParEntreprise')}}">Filtrer par entreprise</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="#">Filtrer par formation</a>
+                            <a class="nav-link" href="{{path('prostage_FiltreParFormation')}}">Filtrer par formation</a>
                           </li>
+                        </ul>
+                        <ul class="navbar-nav ml-md-auto">
+                          <li class="nav-item active">
+                            <a class="nav-link" href="#">
+                             <i class="icon-user"></i>
+                               Déconnexion
+                            <span class="sr-only">(current)</span></a>
+                           </li>
                         </ul>
                       </div>
                     </div>
@@ -67,7 +75,21 @@
 
         <!-- PIED DE PAGE -->
         {% block footer %}
-         <h1>----------- FOOTER ------------</h1>
+            <div class="row" style="margin-top:15px;">
+              <div class="col-md-12">
+                <p class="text-secondary">
+                  Site réalisé avec les frameworks
+                  <a href="https://symfony.com/">Symfony</a>
+                  et
+                  <a href="https://getbootstrap.com/">Bootstrap</a>.
+                  Images libres de droit en provenance de
+                  <a href="https://www.pexels.com/">pexels.com</a>
+                  et
+                  <a href="http://lorempixel.com/">lorempixel.com</a>.
+                </p>
+              </div>
+            </div>
+          </div>
         {% endblock %}
 
         <!-- BLOC JAVASCRIPT -->

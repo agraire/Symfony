@@ -9,11 +9,27 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProStageController extends AbstractController
 {
     /**
-     * @Route("/", name="prostage_acceuil")
+     * @Route("/", name="prostage_accueil")
      */
     public function index(): Response
     {
         return $this->render('pro_stage/index.html.twig');
+    }
+
+    /**
+     * @Route("/filtreParEntreprise", name="prostage_FiltreParEntreprise")
+     */
+    public function filtrerParEntreprise(): Response
+    {
+        return $this->render('pro_stage/filtrerParEntreprise.html.twig');
+    }
+
+    /**
+     * @Route("/filtreParFormation", name="prostage_FiltreParFormation")
+     */
+    public function filtrerParFormation(): Response
+    {
+        return $this->render('pro_stage/filtrerParFormation.html.twig');
     }
 
     /**
