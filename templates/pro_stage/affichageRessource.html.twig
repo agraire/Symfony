@@ -1,10 +1,21 @@
 {% extends "base.html.twig" %}
 
-{% block contenu %}
-<h1> Ressources {{idRessource}}</h1>
-
-<p>
-    Cette page affichera le descriptif de la ressource pédagogique numéro {{idRessource}}.
-</p>   
+{% block titrePage %}
+{{stage.titre}}
 {% endblock %}
 
+{% block contenuPage %}
+<ul class="list-group">
+  <li class="list-group-item"><strong>Détails :</strong> {{stage.description}}</li>
+  <li class="list-group-item"><strong>Formation :</strong> {{formation.nomLong}}</li>
+  <li class="list-group-item"><strong>Adresse entreprise</strong> 
+  {% for formation in stage.formations %}
+    {{formation.nomL}}
+    {% endfor %}
+
+  <li class="list-group-item"><strong>Emaik :</strong> {{stage.email}}</li>
+  <li class="list-group-item"><strong>Site Internet :</strong> {{stage.entreprise.url}}</li>
+  
+</ul>
+
+{% endblock %}
