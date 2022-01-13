@@ -4,13 +4,18 @@ namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use App\Entity\Formation;
 
 class AppFixtures extends Fixture
 {
-    public function load(ObjectManager $manager): void
+    public function load(ObjectManager $manager)
     {
-        $stage = new Product();
-        $manager->persist($product);
+        $formation = new Formation();
+        $formation -> setNomLong("Consulting dans la cybersécurité");
+        $formation -> setNomCourt("CONSULTING");
+
+
+        $manager->persist($formation);
 
         $manager->flush();
     }
