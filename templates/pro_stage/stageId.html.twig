@@ -1,0 +1,26 @@
+{% extends 'details.html.twig' %}
+
+{% block title %}{{stage.Titre}}{% endblock %}
+
+
+{% block titreGauche %}
+    <h3>{{stage.Titre}}</h3>
+{% endblock %}
+
+{% block texteGauche %}
+    <h2>Détails : </h2>{{stage.mission}}<br>
+    <h4>Formation : </h4> 
+    {% for formation in stage.formations %}
+    {{formation.nomL}}
+    {% endfor %}
+{% endblock %}
+
+{% block titreDroite %}
+    <h3><a href="{{path('prostage_EntrepriseId', {id:stage.entreprise.Id})}}">{{stage.entreprise.nom}} </a></h3>
+{% endblock %}
+
+{% block texteDroite %}
+    {{stage.entreprise.adresse}}<br>
+    Site internet : {{stage.entreprise.url}}<br>
+    E-mail: {{stage.email}}
+{% endblock %}

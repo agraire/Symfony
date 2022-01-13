@@ -1,14 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block contenu %}
+{% block title %}Prostages, {{LaFormation}}{% endblock %}
 
-<div class="list-group">
-  <button type="button" class="list-group-item list-group-item-action">MASfgo</button>
-  <button type="button" class="list-group-item list-group-item-action">CaraQSFcho</button>
-  <button type="button" class="list-group-item list-group-item-action">A fourthQSQS button item</button>
-</div>
+{% block nomPage %}
+ <h3>{{LaFormation}}</h3>
+{% endblock %}
 
-
-
+{% block  leTableau %} 
+<thead>
+    <tr>
+        <th>
+            Mission
+        </th>
+        <th>
+            Entreprise
+        </th>
+        <th>
+            Lieu
+        </th>
+    </tr>
+</thead>
+<tbody>
+    {% for formation in nomFormation %}
+    {% if formation.nomCourt == LaFormation %}
+    {% for stageCourant in formation.stages %}
+       <tr>
+        <td>
+        <a class="nav-link" href="{{path('prostage_StageId', {stage:stageCourant.id})}}">
+            {{stageCourant.Titre}}
+        </td>
+        <td>
+            {{stageCourant.entreprise.Nom}}
+        </td>
+        <td>
+            {{stageCourant.entreprise.adresse}}
+        </td>
+        </a>
+    </tr>
+    {% endfor %} 
+    {% endif %}
+    {% endfor %}
 
 {% endblock %}

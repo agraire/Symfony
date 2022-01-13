@@ -1,14 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block contenu %}
+{% block title %}Prostage, Entreprises{% endblock %}
 
-<div class="list-group">
-  <button type="button" class="list-group-item list-group-item-action">Gringo</button>
-  <button type="button" class="list-group-item list-group-item-action">Caracho</button>
-  <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
-</div>
+{% block nomPage %}
+ <h3>Entreprises</h3>
+{% endblock %}
 
-
-
-
+{% block  leTableau %} 
+<thead>
+    <tr>
+        <th>
+            Nom de l'entreprise
+        </th>
+        <th>
+            Activité
+        </th>
+        <th>
+            Adresse
+        </th>
+    </tr>
+</thead>
+<tbody>
+    {% for entrepriseCourante in entreprises %}
+    <tr>
+        <td>
+            <a class="nav-link" href="{{path('prostage_EntrepriseId', {id:entrepriseCourante.id})}}">
+            {{entrepriseCourante.Nom}}
+        </td>
+        <td>
+            {{entrepriseCourante.activite}}
+        </td>
+        <td>
+            {{entrepriseCourante.adresse}}
+        </td>
+        </a>
+    </tr>
+    {% endfor %}
 {% endblock %}

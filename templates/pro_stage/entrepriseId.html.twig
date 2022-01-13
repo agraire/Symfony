@@ -1,0 +1,46 @@
+{% extends 'details.html.twig' %}
+
+{% block title %}{{entreprise.nom}}{% endblock %}
+
+
+{% block titreGauche %}
+    <h3>Stages proposés par l'entreprise {{entreprise.nom}} </h3>
+{% endblock %}
+
+{% block  leTableau %} 
+<thead>
+    <tr>
+        <th>
+            Nom du stage
+        </th>
+        <th>
+            Localisation
+        </th>
+    </tr>
+</thead>
+<tbody>
+{% for stageCourant in entreprise.stages %}
+    <tr>
+        <td>
+        <a class="nav-link" href="{{path('prostage_StageId', {stage:stageCourant.id})}}">
+            {{stageCourant.Titre}}
+        </td>
+        <td>
+            {{stageCourant.entreprise.adresse}}
+        </td>
+        </a>
+    </tr>
+    
+{% endfor %}
+</tbody>
+
+{% endblock %}
+
+{% block titreDroite %}
+    <h3>{{entreprise.Nom}}</h3>
+{% endblock %}
+
+{% block texteDroite %}
+    {{entreprise.adresse}}<br>
+    Site internet : {{entreprise.url}}<br>
+{% endblock %}
