@@ -35,8 +35,8 @@ class AppFixtures extends Fixture
          *** CREATION DES FORMATIONS ***
          **************************************/
         $modulesFormation = array(
-            "DUT Info" => "Diplôme Universitaire Technologique Informatique",
-            "LP Multimédia" => "Licence Professionelle Multimédia",
+            "DUT Informatique" => "Diplôme Universitaire Technologique Informatique",
+            "Licence Pro Informatique" => "Licence Professionelle Informatique",
             "DUT IC" => "Diplôme Universitaire Technologique d'Information et Communication"
         );
 
