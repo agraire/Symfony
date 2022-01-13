@@ -65,13 +65,16 @@
         <!-- BLOC DU CONTENU DE LA PAGE -->
         {% block contenu %}
         <div class="row">
-            <div class="col-12">
-                <ul class="list-group">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                  </ul>
+                <div class="col-md-12">
+                    <h3 class="text-center">
+                        {% block  nomPage %} {% endblock %}
+                    </h3>
+                    <table class="table">
+                        {% block  leTableau %} {% endblock %}
+                        
+                    </table>
+                </div>
             </div>
-        </div>
         {% endblock %}
 
         <!-- PIED DE PAGE -->

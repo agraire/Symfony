@@ -1,14 +1,57 @@
 {% extends 'base.html.twig' %}
 
-{% block contenu %}
+{% block nomPage %}
+ <h3>Stages les + récents</h3>
+{% endblock %}
 
-<div class="list-group">
-  <button type="button" class="list-group-item list-group-item-action">A second item</button>
-  <button type="button" class="list-group-item list-group-item-action">A third button item</button>
-  <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
-</div>
-
+{% block  leTableau %} 
+<thead>
+    <tr>
+        <th>
+            Nom du stage
+        </th>
+        <th>
+            Entreprise
+        </th>
+        <th>
+            Localisation
+        </th>
+    </tr>
+</thead>
+<tbody>
+{# Faire une boucle for pour chaque stage #}
+{% for stageCourant in stages %}
+    <tr>
+        <td>
+        <a class="nav-link" href="{{path('pro_stage_stage_id', {id:stageCourant.id})}}">
+            {{stageCourant.Titre}}
+        </td>
+        <td>
+            {{stageCourant.entreprise.Nom}}
+            {# Nom de l'entreprise #}
+        </td>
+        <td>
+            {{stageCourant.entreprise.adresse}}
+            {# Lieu du stage #}
+        </td>
+        </a>
+    </tr>
+    
+{% endfor %}
+{# Fin de la boucle for #}
+    
+</tbody>
 
 
 
 {% endblock %}
+
+
+
+
+
+{#<div class="list-group">
+  <button type="button" class="list-group-item list-group-item-action">A second item</button>
+  <button type="button" class="list-group-item list-group-item-action">A third button item</button>
+  <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
+</div>#}
